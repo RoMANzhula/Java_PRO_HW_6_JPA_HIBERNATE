@@ -8,8 +8,8 @@
         <properties> <!-- пакет настроек (название -> значение) -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" /> <!-- указываем имя JDBC-драйвера для работы с данной СУБД -->
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpaApartment?serverTimezone=Europe/Kiev"/> <!-- URL DataBase -->
-            <property name="javax.persistence.jdbc.user" value="root" /> <!-- username -->
-            <property name="javax.persistence.jdbc.password" value="roman1985" /> <!-- password -->
+            <property name="javax.persistence.jdbc.user" value="YOUR NAME" /> <!-- username -->
+            <property name="javax.persistence.jdbc.password" value="YOUR PASSWORD" /> <!-- password -->
             <property name="hibernate.show_sql" value="true" /> <!-- Hibernate будет дублировать в консоль все запросы, которые выполняет -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/> <!-- указываем диалект (тип СУБД) -->
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!-- Hibernate меняет структуру DataBase. Создание-удаление. В начале
