@@ -15,18 +15,18 @@
   </properties>
 
   <dependencies>
-        <dependency> <!-- добавляем MySQL в наш проект -->
+        <dependency> <!-- додаємо MySQL до проєкту -->
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.32</version>
         </dependency>
-        <dependency> <!-- добавляем Hibernate в наш проект -->
+        <dependency> <!-- додаємо Hibernate до проекту -->
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.32.Final</version>
         </dependency>
 
-      <dependency> <!-- JAXB позволяет хранить и извлекать данные в памяти в любом XML-формате -->
+      <dependency> <!-- JAXB дозволяє зберігати та витягувати дані в пам'яті у будь-якому XML-форматі -->
           <groupId>javax.xml.bind</groupId>
           <artifactId>jaxb-api</artifactId>
           <version>2.3.1</version>
