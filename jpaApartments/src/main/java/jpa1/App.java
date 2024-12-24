@@ -4,29 +4,29 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class App { //класс Приложение
-    static EntityManagerFactory emf; //создаем статическую ссылочную переменную типа EntityManagerFactory для создания
-    //соединения с DataBase
-    static EntityManager em; //создаем статическую ссылочную переменную типа EntityManager для работы с DataBase
+public class App { // клас Програма
+    static EntityManagerFactory emf; // створюємо статичну змінну типу EntityManagerFactory для створення
+    // з'єднання з базою даних
+    static EntityManager em; // створюємо статичну змінну типу EntityManager для роботи з базою даних
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in); //открываем консоль для работы с пользователями
+        Scanner sc = new Scanner(System.in); // відкриваємо консоль для роботи з користувачами
         try {
-            // create connection
-            emf = Persistence.createEntityManagerFactory("JPATest"); //инициализируем поле класса соединением с DataBase
-            em = emf.createEntityManager(); //обьект для работы с DataBase
+            // створюємо з'єднання
+            emf = Persistence.createEntityManagerFactory("JPATest"); // ініціалізуємо поле класу з'єднанням з базою даних
+            em = emf.createEntityManager(); // об'єкт для роботи з базою даних
             try {
-                while (true) { //создаем меню для работы с таблицой
-                    System.out.println("1: add apartment");
-                    System.out.println("2: delete apartment");
-                    System.out.println("3: change apartment for neighborhood");
-                    System.out.println("4: view apartments");
-                    System.out.println("5: sort menu");
+                while (true) { // створюємо меню для роботи з таблицею
+                    System.out.println("1: додати квартиру");
+                    System.out.println("2: видалити квартиру");
+                    System.out.println("3: змінити квартиру для району");
+                    System.out.println("4: переглянути квартири");
+                    System.out.println("5: меню сортування");
 
                     System.out.print("-> ");
 
-                    String s = sc.nextLine(); //читаем с консоли ответ от пользователя
-                    switch (s) { //ловим ответы от пользователей
+                    String s = sc.nextLine(); // читаємо відповідь користувача з консолі
+                    switch (s) { // обробляємо відповіді користувачів
                         case "1":
                             addApartment(sc);
                             break;
@@ -47,9 +47,9 @@ public class App { //класс Приложение
                             return;
                     }
                 }
-            } finally { //обязательный блок для выполнения
-                sc.close(); //закрываем поток ввода данных с консоли от пользователей
-                em.close(); //закрываем соединене с DataBase
+            } finally { // обов'язковий блок для виконання
+                sc.close(); // закриваємо потік введення даних з консолі від користувачів
+                em.close(); // закриваємо з'єднання з базою даних
                 emf.close();
             }
         } catch (Exception exception) {
@@ -58,7 +58,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void addApartment(Scanner sc) { //метод для добавления квартиры в таблицу
+    private static void addApartment(Scanner sc) { // метод для додавання квартири до таблиці
         System.out.print("Enter apartment neighborhood: ");
         String neighborhood = sc.nextLine();
 
@@ -89,7 +89,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void deleteApartment(Scanner sc) { //метод для удаления квартиры из аблицы
+    private static void deleteApartment(Scanner sc) { // метод для видалення квартири з абліци
         System.out.print("Enter apartment id: ");
         String apartmentId = sc.nextLine();
         long id = Long.parseLong(apartmentId);
@@ -109,7 +109,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void changeApartment(Scanner sc) { //метод для исправления параметров квартиры в таблице
+    private static void changeApartment(Scanner sc) { // метод для виправлення параметрів квартири у таблиці
         System.out.print("Enter apartment neighborhood: ");
         String neighborhood = sc.nextLine();
 
@@ -154,7 +154,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void viewApartments() { //метод для отображения всего содержимого таблицы (всех квартир)
+    private static void viewApartments() { // метод для відображення всього вмісту таблиці (всіх квартир)
         Query query = em.createQuery("SELECT a FROM Apartment a", Apartment.class);
         List<Apartment> list = (List<Apartment>) query.getResultList();
 
@@ -162,7 +162,7 @@ public class App { //класс Приложение
             System.out.println(a);
     }
 
-    private static void sortMenu(Scanner sc) { //метод для вызова меню для сортировки квартир по параметрам
+    private static void sortMenu(Scanner sc) { // метод для виклику меню для сортування квартир за параметрами
         System.out.println("1: area sort: ");
         System.out.println("2: price sort: ");
         System.out.println("3: number of rooms sort: ");
@@ -185,7 +185,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void selectToArea(Scanner sc) { //метод для выбора квартиры по ее площади
+    private static void selectToArea(Scanner sc) { // метод для вибору квартири на її площі
         System.out.println("Enter area to sort: ");
         String strArea = sc.nextLine();
         double area = Double.parseDouble(strArea);
@@ -200,7 +200,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void selectToPrice(Scanner sc) { //метод для выбора квартиры по ее цене
+    private static void selectToPrice(Scanner sc) { // метод для вибору квартири за ціною
         System.out.println("Enter price to sort: ");
         String strPrice = sc.nextLine();
         double price = Double.parseDouble(strPrice);
@@ -215,7 +215,7 @@ public class App { //класс Приложение
         }
     }
 
-    private static void selectToNumOfRooms(Scanner sc) { //метод для выбора квартиры по количеству в ней комнат
+    private static void selectToNumOfRooms(Scanner sc) { // метод для вибору квартири за кількістю кімнат
         System.out.println("Enter number of rooms to sort: ");
         String strNumOfRooms = sc.nextLine();
         int numOfRooms = Integer.parseInt(strNumOfRooms);
